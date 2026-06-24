@@ -1,20 +1,12 @@
 class Solution {
-    public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()){
-            return false;
-        }
-        
-        int[] count = new int[26];
-        for(int i=0;i<s.length(); i++){
-            count[s.charAt(i) - 'a']++;
-            count[t.charAt(i) - 'a']--;
-        }
-        
-        for(int val:count){
-            if(val!=0){
-                return false;
+    public boolean hasDuplicate(int [] nums){
+        Set<Integer> seen = new HashSet<>();
+        for(int num : nums){
+            if(seen.contains(num)){
+                return true;
             }
+            seen.add(num);
         }
-        return true;
+        return false;
     }
 }
